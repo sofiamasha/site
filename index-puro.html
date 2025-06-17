@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmFlix - Catálogo de Filmes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-film"></i> FilmFlix
+            </a>
+            
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="navbar-nav" id="navbarMenu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favoritos.html">
+                        <i class="fas fa-heart"></i> Favoritos
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-search">
+                <form class="search-form" id="searchForm">
+                    <input class="search-input" type="search" id="searchInput" placeholder="Buscar filmes..." required>
+                    <button class="search-button" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="hero-section" id="hero-section">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">Bem-vindo ao FilmFlix</h1>
+                <p class="hero-text">Descubra os melhores filmes e encontre novidades para assistir.</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-star text-accent"></i> Em Alta
+            </h2>
+            <div class="movie-row">
+                <div class="movie-slider" id="featured-movies">
+  
+                </div>
+            </div>
+        </section>
+
+  
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-tag text-accent"></i> Gêneros
+            </h2>
+            <div class="row" id="categories-container">
+
+            </div>
+        </section>
+
+   
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-thumbs-up text-accent"></i> Populares na FilmFlix
+            </h2>
+            <div class="movie-row">
+                <div class="movie-slider" id="popular-movies">
+              
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-fire text-accent"></i> Recomendados para Você
+            </h2>
+            <div class="movie-row">
+                <div class="movie-slider" id="recommended-movies">
+                   
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre Nós</h2>
+                    <p>Sou estudante de Ciência da Computação e apaixonado por filmes. Entre linhas de código e noites em claro, encontrei no cinema um abrigo — um lugar onde posso sonhar mesmo acordado. Criei este site unindo dois amores: o mundo da tecnologia e a arte de contar histórias. Aqui, cada página carrega um pedaço de mim, cada detalhe foi pensado com o coração de quem vê beleza tanto em um bom roteiro quanto em um algoritmo bem escrito.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Informações do Aluno</h2>
+                    <p>Aluno: Cristiano Avelar</p>
+                    <p>Curso: Ciências da Computação</p>
+                    <p>Turno: Manhã</p>
+                    <p>Entre em contato pelo e-mail: cristianoavelar@gmail.com</p>
+                </div>
+            </div>
+            <hr> <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Espero que tenham gostado!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   
+    <script src="app.js"></script>
+    <script>
+
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,693 @@
+/* Estilos principais para o catálogo de filmes FilmFlix - Design inspirado na Netflix */
+
+/* ===== Variáveis ===== */
+:root {
+    --primary-color: #E50914;  /* Vermelho Netflix */
+    --secondary-color: #0071EB; /* Azul Netflix */
+    --dark-bg: #141414;
+    --darker-bg: #0B0B0B;
+    --light-text: #F5F5F5;
+    --muted-text: #999;
+    --card-bg: #1F1F1F;
+    --hover-bg: #333;
+    --border-color: #333;
+    --gradient-overlay: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+    --netflix-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+
+/* ===== Estilos base ===== */
+body {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Roboto', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.dark-theme {
+    --bs-primary: var(--primary-color);
+    --bs-primary-rgb: 229, 9, 20;
+    --bs-link-color: var(--secondary-color);
+    --bs-link-hover-color: #0086FF;
+}
+
+.text-accent {
+    color: var(--primary-color);
+}
+
+/* ===== Barra de navegação ===== */
+.navbar {
+    background-color: rgba(11, 11, 11, 0.95);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.navbar .form-control {
+    background-color: var(--darker-bg);
+    border-color: var(--border-color);
+    color: var(--light-text);
+}
+
+.navbar .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25);
+    border-color: var(--primary-color);
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* ===== Seção Hero ===== */
+.hero-section {
+    background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    margin-top: -76px; /* Para compensar a navbar fixa */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-overlay);
+}
+
+.hero-content {
+    position: relative;
+    padding: 2rem;
+    max-width: 650px;
+    z-index: 1;
+    margin-top: 10vh;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-hero {
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.btn-hero-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-hero-primary:hover {
+    background-color: #ff0f1f;
+    transform: scale(1.05);
+}
+
+.btn-hero-secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: white;
+    border: none;
+}
+
+.btn-hero-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+    transform: scale(1.05);
+}
+
+/* ===== Títulos de seção ===== */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ===== Seção de filmes em carrossel ===== */
+.movie-row {
+    position: relative;
+    margin: 0 -15px;
+    padding: 0 30px;
+}
+
+.movie-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Firefox */
+    scroll-snap-type: x mandatory;
+}
+
+.movie-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.movie-slider-item {
+    flex: 0 0 auto;
+    width: 220px;
+    margin: 0 10px;
+    scroll-snap-align: start;
+}
+
+.netflix-card {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== Cards de filme ===== */
+.movie-card {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-card:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.card-poster {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: var(--netflix-shadow);
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.card-poster::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .card-poster::after {
+    opacity: 1;
+}
+
+.card-poster img {
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.movie-card:hover .card-poster img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.card-body {
+    padding: 0;
+    position: relative;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover .card-title {
+    color: var(--primary-color);
+}
+
+.movie-info-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover .movie-info-hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie-controls {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.movie-control-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.movie-control-btn:hover {
+    background-color: white;
+    color: var(--dark-bg);
+    transform: scale(1.1);
+}
+
+/* Botão de favorito */
+.btn-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+}
+
+.movie-card:hover .btn-favorite {
+    opacity: 1;
+}
+
+.btn-favorite:hover {
+    background-color: rgba(229, 9, 20, 0.8);
+    transform: scale(1.1);
+}
+
+.btn-favorite.active {
+    opacity: 1;
+    background-color: var(--primary-color);
+}
+
+.btn-favorite.active i {
+    animation: heartbeat 1s ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.btn-favorite-large {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-favorite-large:hover {
+    background-color: white;
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+.btn-favorite-large.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Avaliação do filme */
+.movie-rating {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ===== Página de detalhes do filme ===== */
+.movie-backdrop {
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: -15px;
+}
+
+.movie-backdrop-overlay {
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.9) 0%, rgba(20, 20, 20, 0.8) 50%, rgba(20, 20, 20, 0.7) 100%);
+    padding: 3rem 0;
+}
+
+.movie-poster img {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.movie-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.release-year {
+    font-weight: 400;
+    color: var(--muted-text);
+    font-size: 1.5rem;
+}
+
+.movie-meta {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+.movie-overview {
+    line-height: 1.6;
+}
+
+.movie-content {
+    margin-top: 2rem;
+}
+
+.nav-tabs {
+    border-bottom-color: var(--border-color);
+}
+
+.nav-tabs .nav-link {
+    color: var(--light-text);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom-color: var(--muted-text);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background-color: transparent;
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    padding: 2rem 0;
+}
+
+/* Container de vídeo */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Cards do elenco */
+.cast-avatar img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+
+.cast-name {
+    margin-bottom: 0.25rem;
+}
+
+/* Cards de categorias */
+.category-card {
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card .card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.category-card:hover .card {
+    background-color: var(--hover-bg);
+}
+
+/* Estado vazio */
+.empty-state {
+    color: var(--muted-text);
+    padding: 3rem 0;
+}
+
+/* Rodapé */
+.footer {
+    background-color: var(--darker-bg);
+    color: var(--muted-text);
+    margin-top: auto;
+}
+
+.footer a {
+    color: var(--light-text);
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Notificações */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-width: 350px;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-icon {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.notification-success {
+    background-color: #28a745;
+}
+
+.notification-info {
+    background-color: #17a2b8;
+}
+
+.notification-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.notification-error {
+    background-color: #dc3545;
+}
+
+/* ===== Responsividade ===== */
+/* Dispositivos pequenos (telefones em modo paisagem) */
+@media (max-width: 767.98px) {
+    .navbar .form-control {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-section {
+        height: 350px;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .movie-card .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .btn-favorite {
+        opacity: 1;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .cast-avatar img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .movie-title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Para detalhes do filme em dispositivos móveis */
+    .movie-backdrop-overlay {
+        background: linear-gradient(to bottom, 
+            rgba(20, 20, 20, 0.9) 0%, 
+            rgba(20, 20, 20, 0.8) 100%);
+    }
+    
+    .movie-info {
+        text-align: center;
+    }
+    
+    .movie-poster {
+        max-width: 200px;
+        margin: 0 auto;
+        margin-bottom: 1.5rem;
+    }
+    
+    .movie-genres {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .movie-genres .badge {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* Dispositivos médios (tablets) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .hero-section {
+        height: 400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+    
+    .cast-avatar img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .movie-title {
+        font-size: 2rem;
+    }
+}
+
+/* Dispositivos grandes (desktops) e maiores */
+@media (min-width: 992px) {
+    .navbar-collapse form {
+        width: 300px;
+    }
+    
+    .hero-content {
+        padding: 3rem;
+    }
+    
+    .movie-card:hover .btn-favorite {
+        opacity: 1;
+    }
+}

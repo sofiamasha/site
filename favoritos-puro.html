@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Favoritos - FilmFlix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a class="navbar-brand" href="index-puro.html">
+                <i class="fas fa-film"></i> FilmFlix
+            </a>
+            
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="navbar-nav" id="navbarMenu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index-puro.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favoritos-puro.html">
+                        <i class="fas fa-heart"></i> Favoritos
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-search">
+                <form class="search-form" id="searchForm">
+                    <input class="search-input" type="search" id="searchInput" placeholder="Buscar filmes..." required>
+                    <button class="search-button" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <section class="section">
+            <h1 class="section-title">
+                <i class="fas fa-heart text-accent"></i> Meus Filmes Favoritos
+            </h1>
+            
+            <div id="favorites-container">
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre Nós</h2>
+                    <p>Sou estudante de Ciência da Computação e apaixonado por filmes. Entre linhas de código e noites em claro, encontrei no cinema um abrigo — um lugar onde posso sonhar mesmo acordado. Criei este site unindo dois amores: o mundo da tecnologia e a arte de contar histórias. Aqui, cada página carrega um pedaço de mim, cada detalhe foi pensado com o coração de quem vê beleza tanto em um bom roteiro quanto em um algoritmo bem escrito.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Informações do Aluno</h2>
+                    <p>Aluno: Cristiano Avelar</p>
+                    <p>Curso: Ciências da Computação</p>
+                    <p>Turno: Manhã</p>
+                    <p>Entre em contato pelo e-mail: cristianoavelar@gmail.com</p>
+                </div>
+            </div>
+            <hr> <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Espero que tenham gostado!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <template id="empty-favorites">
+        <div class="empty-state">
+            <i class="fas fa-heart fa-3x mb-3 text-muted"></i>
+            <h3>Nenhum Filme Favorito</h3>
+            <p>Adicione filmes aos seus favoritos para vê-los aqui</p>
+            <a href="index-puro.html" class="btn-favorite-large">
+                <i class="fas fa-film"></i> Explorar Filmes
+            </a>
+        </div>
+    </template>
+
+    <template id="favorites-grid">
+        <div class="favorites-grid" id="favorites-row">
+
+        </div>
+    </template>
+
+    <template id="movie-card-template">
+        <div class="movie-card">
+            <div class="card-poster">
+                <img src="" alt="" class="movie-poster">
+                <button class="btn-favorite active" data-movie-id="">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <div class="movie-info-hover">
+                    <div class="movie-controls">
+                        <a href="" class="movie-control-btn movie-link">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title movie-title"></h5>
+            </div>
+        </div>
+    </template>
+
+   
+    <script src="app-puro.js"></script>
+    <script>
+
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

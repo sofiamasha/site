@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Filme - FilmFlix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a class="navbar-brand" href="index-puro.html">
+                <i class="fas fa-film"></i> FilmFlix
+            </a>
+            
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="navbar-nav" id="navbarMenu">
+                <li class="nav-item">
+                    <a class="nav-link" href="index-puro.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favoritos-puro.html">
+                        <i class="fas fa-heart"></i> Favoritos
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-search">
+                <form class="search-form" id="searchForm">
+                    <input class="search-input" type="search" id="searchInput" placeholder="Buscar filmes..." required>
+                    <button class="search-button" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <div id="movie-details-container">
+
+        </div>
+        
+        <section class="section similar-movies">
+            <h2 class="section-title">
+                <i class="fas fa-film text-accent"></i> Filmes Similares
+            </h2>
+            <div class="movie-row">
+                <div class="movie-slider" id="similar-movies">
+               
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre Nós</h2>
+                    <p>Sou estudante de Ciência da Computação e apaixonado por filmes. Entre linhas de código e noites em claro, encontrei no cinema um abrigo — um lugar onde posso sonhar mesmo acordado. Criei este site unindo dois amores: o mundo da tecnologia e a arte de contar histórias. Aqui, cada página carrega um pedaço de mim, cada detalhe foi pensado com o coração de quem vê beleza tanto em um bom roteiro quanto em um algoritmo bem escrito.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Informações do Aluno</h2>
+                    <p>Aluno: Cristiano Avelar</p>
+                    <p>Curso: Ciências da Computação</p>
+                    <p>Turno: Manhã</p>
+                    <p>Entre em contato pelo e-mail: cristianoavelar@gmail.com</p>
+                </div>
+            </div>
+            <hr> <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Espero que tenham gostado!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   
+    <template id="movie-details-template">
+        <div class="movie-backdrop">
+            <div class="movie-backdrop-overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-12 col-md-4 col-lg-3">
+                            <div class="movie-poster">
+                                <img src="" alt="" class="movie-poster-img">
+                            </div>
+                        </div>
+                        <div class="col col-12 col-md-8 col-lg-9">
+                            <div class="movie-info">
+                                <h1 class="movie-title">
+                                    <!-- Nome do filme e ano serão inseridos aqui -->
+                                </h1>
+                                <div class="movie-tagline">
+                                    <!-- Tagline será inserida aqui -->
+                                </div>
+                                <div class="movie-meta">
+                                    <span class="release-date">
+                                        <!-- Data de lançamento será inserida aqui -->
+                                    </span>
+                                    <span class="runtime">
+                                        <!-- Duração será inserida aqui -->
+                                    </span>
+                                    <span class="rating">
+                                        <!-- Avaliação será inserida aqui -->
+                                    </span>
+                                </div>
+                                <div class="movie-genres">
+                                    <!-- Gêneros serão inseridos aqui -->
+                                </div>
+                                <button class="btn-favorite-large" id="favoriteBtn">
+                                    <i class="far fa-heart"></i> Adicionar aos Favoritos
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-content">
+            <div class="tabs">
+                <ul class="tabs-nav">
+                    <li class="tab-item">
+                        <a class="tab-link active" data-tab="overview">Sinopse</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="tab-link" data-tab="cast">Elenco</a>
+                    </li>
+                    <li class="tab-item trailer-tab-item">
+                        <a class="tab-link" data-tab="trailer">Trailer</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="overview">
+                    <div class="movie-overview">
+                        <p class="lead">
+                            <!-- Sinopse será inserida aqui -->
+                        </p>
+                    </div>
+                </div>
+                <div class="tab-pane" id="cast">
+                    <div class="cast-container" id="cast-container">
+                        <!-- Elenco será inserido aqui -->
+                    </div>
+                </div>
+                <div class="tab-pane" id="trailer">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Scripts -->
+    <script src="app-puro.js"></script>
+    <script>
+        // Script para toggle do menu mobile
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('show');
+        });
+        
+        // Script para funcionamento das abas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para inicializar as abas após o carregamento dos detalhes do filme
+            function initTabs() {
+                const tabLinks = document.querySelectorAll('.tab-link');
+                if (tabLinks.length === 0) return;
+                
+                tabLinks.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Remove active class de todas as abas
+                        tabLinks.forEach(t => t.classList.remove('active'));
+                        
+                        // Adiciona active class na aba clicada
+                        this.classList.add('active');
+                        
+                        // Esconde todos os painéis de conteúdo
+                        const tabPanes = document.querySelectorAll('.tab-pane');
+                        tabPanes.forEach(pane => pane.classList.remove('active'));
+                        
+                        // Mostra o painel correspondente
+                        const tabId = this.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+            }
+            
+            // Observa mudanças no container de detalhes para inicializar as abas
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.addedNodes.length > 0) {
+                        initTabs();
+                        observer.disconnect();
+                    }
+                });
+            });
+            
+            const detailsContainer = document.getElementById('movie-details-container');
+            if (detailsContainer) {
+                observer.observe(detailsContainer, { childList: true });
+            }
+        });
+    </script>
+</body>
+</html>

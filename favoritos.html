@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Filmes Favoritos - FilmFlix</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-film me-2"></i>FilmFlix
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="favoritos.html">
+                            <i class="fas fa-heart me-1"></i>Favoritos
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex" id="searchForm">
+                    <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar filmes..." required>
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container mt-5 pt-4">
+        <div class="favorites-header my-4">
+            <h1 class="mb-4">Meus Filmes Favoritos</h1>
+        </div>
+
+        <div id="favorites-container">
+
+        </div>
+
+        <template id="empty-favorites">
+            <div class="empty-state text-center py-5">
+                <i class="fas fa-heart-broken fa-3x mb-3 text-muted"></i>
+                <h3>Nenhum Filme Favorito Ainda</h3>
+                <p>Comece a adicionar filmes aos seus favoritos para vê-los aqui</p>
+                <a href="index.html" class="btn btn-primary mt-3">Explorar Filmes</a>
+            </div>
+        </template>
+
+        <template id="favorites-grid">
+            <div class="row g-4" id="favorites-row">
+               
+            </div>
+        </template>
+
+        <template id="movie-card-template">
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="movie-card">
+                    <div class="card-poster">
+                        <a href="#" class="movie-link">
+                            <img src="" alt="" class="movie-poster img-fluid rounded">
+                        </a>
+                        <button class="btn-favorite active" data-movie-id="">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="card-body p-2">
+                        <h5 class="card-title text-truncate movie-title"></h5>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </main>
+
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre Nós</h2>
+                    <p>Sou estudante de Ciência da Computação e apaixonado por filmes. Entre linhas de código e noites em claro, encontrei no cinema um abrigo — um lugar onde posso sonhar mesmo acordado. Criei este site unindo dois amores: o mundo da tecnologia e a arte de contar histórias. Aqui, cada página carrega um pedaço de mim, cada detalhe foi pensado com o coração de quem vê beleza tanto em um bom roteiro quanto em um algoritmo bem escrito.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Informações do Aluno</h2>
+                    <p>Aluno: Cristiano Avelar</p>
+                    <p>Curso: Ciências da Computação</p>
+                    <p>Turno: Manhã</p>
+                    <p>Entre em contato pelo e-mail: cristianoavelar@gmail.com</p>
+                </div>
+            </div>
+            <hr> <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Espero que tenham gostado!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
